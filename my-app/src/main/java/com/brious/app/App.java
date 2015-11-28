@@ -1,13 +1,21 @@
 package com.brious.app;
 
+import static spark.Spark.*;
+
+import spark.Request;
+import spark.Response;
+import spark.Route;
+
 /**
- * Hello world!
- *
+ * Hello world
  */
-public class App 
-{
-    public static void main( String[] args )
-    {
-        System.out.println( "Hello World!" );
+public class App {
+	public static void main(String[] args) {
+		get("other", (req, res) -> "other route");
+		get("details", (req, res) -> {
+			res.redirect("http://www.google.com");
+			return res;
+			//return req.contentType();
+		});
     }
 }
