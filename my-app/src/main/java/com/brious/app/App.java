@@ -12,6 +12,9 @@ import spark.Route;
 public class App {
 	public static void main(String[] args) {
 		get("other", (req, res) -> "other route");
+		get("hello/:name", (req, res) -> {
+			return "Hello, " + req.params("name");
+		});
 		get("details", (req, res) -> {
 			res.redirect("http://www.google.com");
 			return res;
